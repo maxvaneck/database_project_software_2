@@ -2,6 +2,11 @@ create database weather;
 
 use weather;
 
+create table device(
+	device_id int not null primary key,
+    device_name varchar(20) not null
+);
+
 create table weather_data(
 	time_stamp date not null,
     device_id int not null,
@@ -15,7 +20,3 @@ create table weather_data(
     constraint fk_device_id foreign key (device_id) references device (device_id)
 );
 
-create table device(
-	device_id int not null primary key,
-    device_name varchar(20) not null
-);
