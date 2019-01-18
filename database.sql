@@ -1,22 +1,25 @@
-create database weather;
+CREATE DATABASE weather;
 
-use weather;
+USE weather;
 
-create table device(
-	device_id int not null primary key,
-    device_name varchar(20) not null
+CREATE TABLE device(
+	device_id INT NOT NULL PRIMARY KEY,
+    device_name VARCHAR(20) NOT NULL
 );
 
-create table weather_data(
-	time_stamp date not null,
-    device_id int not null,
-    temperature float(6,2),
-    humidity float(6,2),
-    pressure float(6,2),
-    light float(6,2),
-    time_of_day time not null,
-    primary key (device_id,time_of_day),
-    key fk_device_id (device_id),
-    constraint fk_device_id foreign key (device_id) references device (device_id)
+CREATE TABLE weather_data(
+	time_stamp DATE NOT NULL,
+    device_id INT NOT NULL,
+    temperature FLOAT(6,2),
+    humidity FLOAT(6,2),
+    pressure FLOAT(6,2),
+    light FLOAT(6,2),
+    time_of_day TIME NOT NULL,
+    PRIMARY KEY (device_id,time_of_day),
+    KEY fk_device_id (device_id),
+    CONSTRAINT fk_device_id FOREIGN KEY (device_id) REFERENCES device (device_id)
 );
+
+INSERT INTO device VALUES(1,'lopy_1');
+INSERT INTO device VALUES(2,'lopy_2');
 
